@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Proyecto de Prácticas{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Proyecto de Prácticas</h1>
+        <p class="lead text-center">Desarrollo de habilidades en Python y creación de chatbots personalizados.</p>
+        
+        <nav class="text-center mb-4">
+            <a href="{{ url_for('index') }}" class="btn btn-primary me-2">Inicio</a>
+            <a href="{{ url_for('tareas') }}" class="btn btn-primary me-2">Tareas</a>
+            <a href="{{ url_for('videos') }}" class="btn btn-primary me-2">Videos</a>
+            <a href="{{ url_for('informacion') }}" class="btn btn-primary">Información</a>
+        </nav>
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Bloque para los scripts -->
+    {% block scripts %}{% endblock %}
+</body>
+</html>

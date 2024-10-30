@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block title %}Tareas - Proyecto de Prácticas{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">Tareas por Semana</h2>
+    <div class="week-selector text-center mb-4">
+        <button class="btn btn-primary me-2" onclick="showWeek(1)" id="week1-btn" {% if 1 not in semanas_desbloqueadas %}disabled{% endif %}>Semana 1</button>
+        <button class="btn btn-primary me-2" onclick="showWeek(2)" id="week2-btn" {% if 2 not in semanas_desbloqueadas %}disabled{% endif %}>Semana 2</button>
+        <button class="btn btn-primary me-2" onclick="showWeek(3)" id="week3-btn" {% if 3 not in semanas_desbloqueadas %}disabled{% endif %}>Semana 3</button>
+        <button class="btn btn-primary" onclick="showWeek(4)" id="week4-btn" {% if 4 not in semanas_desbloqueadas %}disabled{% endif %}>Semana 4</button>
+    </div>
+
+    <!-- Contenido de las semanas -->
+    <!-- ... (tu contenido existente para cada semana) ... -->
+
+    <!-- Contenido Semana 1 envuelto en una card -->
+    <div id="content-week1" class="card my-4 week-content d-none">
+        <div class="card-header bg-primary text-white">
+            <h5>Semana 1: Configuración del Entorno y Fundamentos de Python</h5>
+        </div>
+        <div class="card-body">
+            <!-- Video de Introducción -->
+            <div class="ratio ratio-16x9 mb-4">
+                <iframe src="https://www.youtube.com/embed/Kp4Mvapo5kc" title="Video 1 - Python para Principiantes" allowfullscreen></iframe>
+            </div>
+            <!-- Ejercicios por día -->
+            <h4>Día 1: Introducción, Configuración y Primeros Pasos</h4>
+            <ul>
+                <li>Instalar Python y Visual Studio Code.</li>
+                <li>Crear un archivo <code>hola_mundo.py</code> que imprima “Hola, Mundo” en la consola.</li>
+                <li>Ejecutar el script en VS Code y familiarizarse con el entorno.</li>
+            </ul>
+
+            <h4>Día 2: Variables y Operadores</h4>
+            <ul>
+                <li>Crear variables de diferentes tipos (<code>int</code>, <code>float</code>, <code>str</code>) y operar entre ellas.</li>
+                <li>Resolver ejercicios usando operadores aritméticos, de comparación y lógicos.</li>
+                <li>Practicar con operadores de asignación y explicar en comentarios cómo modifican las variables.</li>
+            </ul>
+
+            <h4>Día 3: Estructuras de Datos Básicas</h4>
+            <ul>
+                <li>Crear una lista, modificar sus elementos, agregar y eliminar valores.</li>
+                <li>Crear un diccionario que almacene información simple (por ejemplo, datos de un estudiante) y acceder a sus valores.</li>
+                <li>Comparar listas, tuplas, sets y diccionarios mediante ejemplos prácticos.</li>
+            </ul>
+
+            <h4>Día 4: Control de Flujo (Condicionales y Bucles)</h4>
+            <ul>
+                <li>Escribir un programa que solicite un valor numérico y determine si es positivo, negativo o cero.</li>
+                <li>Usar un bucle para recorrer una lista e imprimir cada elemento.</li>
+                <li>Realizar un ejercicio de “contador” usando un bucle <code>while</code> con una condición.</li>
+            </ul>
+
+            <h4>Día 5: Funciones, Clases y Manejo de Errores</h4>
+            <ul>
+                <li>Definir una función <code>suma</code> que reciba dos números como parámetros y devuelva la suma.</li>
+                <li>Crear una clase <code>Persona</code> con atributos <code>nombre</code> y <code>edad</code>, e inicializar un objeto.</li>
+                <li>Usar un bloque <code>try-except</code> para manejar un posible error de división por cero.</li>
+            </ul>
+
+            <!-- Contenido Extra Opcional -->
+            <h4>Contenido Extra Opcional</h4>
+            <div class="ratio ratio-16x9 mb-4">
+                <iframe src="https://www.youtube.com/embed/TbcEqkabAWU" title="Video 2 - Python Avanzado" allowfullscreen></iframe>
+            </div>
+            <ul>
+                <li>Leer un archivo de texto e imprimir su contenido.</li>
+                <li>Usar expresiones regulares para buscar patrones en un texto (por ejemplo, encontrar correos electrónicos).</li>
+            </ul>
+
+            <!-- Práctica Final - Semana 1 -->
+            <div class="card my-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Práctica Final - Semana 1: Sistema de Calificaciones</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Descripción del Problema:</strong> Crear un programa que gestione un sistema básico de calificaciones para un grupo de estudiantes.</p>
+                    <p><strong>Objetivo:</strong> Consolidar los conocimientos de Python aprendidos durante la semana.</p>
+                    
+                    <h6>Instrucciones de la Práctica:</h6>
+                    <ul>
+                        <li><strong>1. Crear un Diccionario de Estudiantes y Notas</strong>
+                            <p>Crea un diccionario donde cada clave sea el nombre de un estudiante y cada valor sea su calificación (entre 0 y 10). Añade al menos cinco estudiantes con calificaciones diferentes.</p>
+                        </li>
+                        <li><strong>2. Calcular Promedios y Determinar el Estado de los Estudiantes</strong>
+                            <ul>
+                                <li><em>Promedio General:</em> Calcula el promedio de todas las calificaciones.</li>
+                                <li><em>Estado del Estudiante:</em> Crea una función <code>determinar_estado(calificacion)</code> que devuelva "Aprobado" si la calificación es mayor o igual a 5, y "Reprobado" si es menor.</li>
+                            </ul>
+                        </li>
+                        <li><strong>3. Filtrar y Mostrar los Estudiantes Aprobados y Reprobados</strong>
+                            <p>Crea dos listas para almacenar a los estudiantes aprobados y reprobados, respectivamente. Recorre el diccionario y clasifica a cada estudiante en la lista adecuada.</p>
+                        </li>
+                        <li><strong>4. Mostrar Resultados</strong>
+                            <p>Imprime:
+                                <ul>
+                                    <li>Los nombres y calificaciones de los estudiantes aprobados y reprobados.</li>
+                                    <li>El promedio general de calificaciones.</li>
+                                    <li>Un resumen que indique cuántos estudiantes aprobaron y cuántos reprobaron.</li>
+                                </ul>
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h6>Ejemplo de Salida Esperada:</h6>
+                    <pre><code>
+Estudiantes Aprobados:
+- Ana: 7.5
+- Luis: 6.0
+
+Estudiantes Reprobados:
+- Pedro: 4.5
+- Marta: 3.0
+- Juan: 2.5
+
+Promedio General: 4.7
+Resumen:
+- Número de estudiantes aprobados: 2
+- Número de estudiantes reprobados: 3
+                    </code></pre>
+
+                    <h6>Pistas y Consejos:</h6>
+                    <ul>
+                        <li><strong>Variables y Diccionarios:</strong> Usa variables para almacenar el promedio y listas para los estudiantes aprobados y reprobados.</li>
+                        <li><strong>Condicionales y Bucles:</strong> Utiliza un bucle <code>for</code> y condicionales <code>if</code> para determinar el estado de cada estudiante.</li>
+                        <li><strong>Funciones:</strong> Crea la función <code>determinar_estado</code> para simplificar el código.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido Semana 2 en formato card -->
+    <div id="content-week2" class="card my-4 week-content d-none">
+        <div class="card-header bg-primary text-white">
+            <h5>Semana 2: Introducción a NLP y Modelos de Lenguaje</h5>
+        </div>
+        <div class="card-body">
+            <!-- Video de referencia -->
+            <div class="ratio ratio-16x9 mb-4">
+                <iframe src="https://www.youtube.com/embed/8dSUCzwURnQ" title="Video - Introducción a NLP y Modelos de Lenguaje" allowfullscreen></iframe>
+            </div>
+
+            <!-- Ejercicios por día -->
+            <h4>Día 1: Fundamentos de NLP y Vectores de Texto</h4>
+            <ul>
+                <li>Introducción a los vectores: investiga qué son y cómo representan el texto en NLP.</li>
+                <li>Bolsa de Palabras (Bag of Words): implementar un ejemplo simple en Python usando listas.</li>
+                <li>Ejercicio de Tokenización: Divide un texto en palabras individuales y elimina las "stop words".</li>
+            </ul>
+
+            <h4>Día 2: TF-IDF y Similitud de Vectores</h4>
+            <ul>
+                <li>Crear una representación de un texto usando el método TF-IDF.</li>
+                <li>Ejercicio de Similitud de Vectores: Calcula la similitud entre dos frases usando TF-IDF.</li>
+                <li>Proyecto Mini: Crea un recomendador de películas basado en similitud de textos usando TF-IDF.</li>
+            </ul>
+
+            <h4>Día 3: Embeddings de Palabras y Modelos Probabilísticos</h4>
+            <ul>
+                <li>Implementar embeddings de palabras usando Word2Vec.</li>
+                <li>Ejercicio de Analogías: Usar embeddings para resolver analogías en Python (por ejemplo, "Rey - Hombre + Mujer = Reina").</li>
+                <li>Modelos de Markov: Introducción y creación de una cadena de Markov simple en Python.</li>
+            </ul>
+
+            <h4>Día 4: Clasificación de Texto y Análisis de Sentimientos</h4>
+            <ul>
+                <li>Ejercicio de clasificación de texto usando un modelo Naive Bayes para detectar SPAM.</li>
+                <li>Implementación de un análisis de sentimientos básico usando regresión logística.</li>
+                <li>Crear un clasificador de sentimientos en Python con un pequeño conjunto de datos de texto.</li>
+            </ul>
+
+            <h4>Día 5: Resumen de Texto y Modelado de Temas</h4>
+            <ul>
+                <li>Ejercicio de Resumen de Textos: Implementa un resumen automático de un texto usando el método TextRank.</li>
+                <li>Modelado de temas con LDA (Latent Dirichlet Allocation): implementa una clasificación de temas en un conjunto de artículos.</li>
+            </ul>
+
+            <!-- Práctica Final - Semana 2 -->
+            <div class="card my-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Práctica Final - Semana 2: Clasificación de Textos y Análisis de Sentimientos</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Descripción del Problema:</strong> Implementar un sistema de análisis de sentimientos y clasificación de texto utilizando un conjunto de datos de reseñas de productos.</p>
+                    <p><strong>Objetivo:</strong> Consolidar los conocimientos en procesamiento de lenguaje natural (NLP) y modelos de clasificación.</p>
+
+                    <h6>Instrucciones de la Práctica:</h6>
+                    <ul>
+                        <li><strong>1. Preparación del Dataset</strong>
+                            <p>Recopila un conjunto de datos de reseñas o utiliza un dataset público. Divide el conjunto de datos en entrenamiento y prueba.</p>
+                        </li>
+                        <li><strong>2. Procesamiento de Texto</strong>
+                            <ul>
+                                <li>Tokenización: Divide las reseñas en palabras individuales.</li>
+                                <li>Eliminar "stop words" y aplicar stemming o lematización.</li>
+                            </ul>
+                        </li>
+                        <li><strong>3. Representación y Clasificación</strong>
+                            <ul>
+                                <li>Vectoriza el texto usando TF-IDF o Word2Vec.</li>
+                                <li>Entrena un clasificador Naive Bayes para la detección de sentimientos.</li>
+                            </ul>
+                        </li>
+                        <li><strong>4. Evaluación y Resultados</strong>
+                            <p>Evalúa el rendimiento del modelo usando métricas como precisión, recall y F1-score. Muestra algunos ejemplos de clasificaciones correctas e incorrectas.</p>
+                        </li>
+                    </ul>
+
+                    <h6>Ejemplo de Salida Esperada:</h6>
+                    <pre><code>
+    Reseñas Positivas:
+    - "Este producto es excelente, me encantó el diseño y la calidad."
+
+    Reseñas Negativas:
+    - "No recomiendo este producto, no cumple con lo que promete."
+
+    Precisión del modelo: 85%
+                    </code></pre>
+
+                    <h6>Pistas y Consejos:</h6>
+                    <ul>
+                        <li><strong>Preprocesamiento:</strong> Elimina caracteres especiales y normaliza el texto antes de vectorizarlo.</li>
+                        <li><strong>Modelo de Clasificación:</strong> Experimenta con diferentes modelos (Naive Bayes, regresión logística) para ver cuál da mejor resultado.</li>
+                        <li><strong>Métricas:</strong> Usa un conjunto de datos de prueba para evaluar el modelo y ajustarlo si es necesario.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+    // Función global para mostrar la semana seleccionada
+    function showWeek(weekNumber) {
+        // Ocultar todas las semanas
+        document.querySelectorAll('.week-content').forEach(function(content) {
+            content.classList.add('d-none');
+            content.classList.remove('d-block');
+        });
+        
+        // Mostrar la semana seleccionada
+        var selectedWeek = document.getElementById('content-week' + weekNumber);
+        if (selectedWeek) {
+            selectedWeek.classList.remove('d-none');
+            selectedWeek.classList.add('d-block');
+        }
+
+        // Actualizar botones de navegación
+        document.querySelectorAll('.week-selector button').forEach(function(button) {
+            button.classList.remove('active');
+        });
+        document.getElementById('week' + weekNumber + '-btn').classList.add('active');
+    }
+
+    // Inicializar la primera semana al cargar la página
+    document.addEventListener("DOMContentLoaded", function() {
+        showWeek(1);
+    });
+    </script>
+{% endblock %}
